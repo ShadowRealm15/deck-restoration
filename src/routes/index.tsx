@@ -67,6 +67,7 @@ const EMPTY_BRIEF: BriefInput = {
 
 const DECK_STORAGE_KEY = "brandstrat.deck";
 const BRIEF_STORAGE_KEY = "brandstrat.brief";
+const AUTH_STORAGE_KEY = "brandstrat.unlocked";
 
 function Index() {
   const [unlocked, setUnlocked] = useState(false);
