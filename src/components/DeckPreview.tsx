@@ -463,7 +463,7 @@ export function DeckPreview({
             key={i}
             className={
               forPdf
-                ? "h-auto overflow-visible rounded-xl border border-gray-800/60 p-4 text-[16px] leading-relaxed text-muted-foreground"
+                ? "h-auto overflow-visible rounded-xl border border-gray-800/60 px-3.5 py-2.5 text-[15px] leading-snug text-muted-foreground"
                 : "rounded-xl border border-glass-border bg-glass p-4 text-sm leading-loose text-muted-foreground"
             }
           >
