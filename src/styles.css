@@ -374,10 +374,10 @@ progress.tone-progress::-moz-progress-bar {
   font-size: 3rem !important;
 }
 .pdf-export .deck-card ol {
-  gap: 1.25rem !important;
+  gap: 0.625rem !important;
 }
 .pdf-export .deck-card li {
-  padding: 1.5rem !important;
+  padding: 1rem !important;
 }
 .pdf-export .deck-card > div {
   gap: 1.5rem;

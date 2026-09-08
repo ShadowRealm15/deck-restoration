@@ -388,8 +388,8 @@ export function DeckPreview({
               key={i}
               className={
                 forPdf
-                  ? "relative flex-1 break-inside-avoid rounded-xl border border-gray-800/60 px-4 py-2 pl-11"
-                  : "relative break-inside-avoid rounded-xl border border-glass-border bg-glass px-4 py-4 pl-10 sm:px-5 sm:pl-11"
+                  ? "relative flex-1 rounded-xl border border-gray-800/60 px-4 py-2 pl-11"
+                  : "relative rounded-xl border border-glass-border bg-glass px-4 py-4 pl-10 sm:px-5 sm:pl-11"
               }
             >
               <span
