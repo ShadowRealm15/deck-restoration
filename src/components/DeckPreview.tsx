@@ -470,7 +470,7 @@ export function DeckPreview({
             <span
               className={
                 forPdf
-                  ? "mb-2 inline-grid size-8 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-[15px] font-semibold text-primary-foreground"
+                  ? "mb-1 inline-grid size-6 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-[13px] font-semibold text-primary-foreground"
                   : "mb-2 inline-grid size-6 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-xs font-semibold text-primary-foreground"
               }
             >
