@@ -90,7 +90,9 @@ function CardShell({
         forPdf
           ? `deck-card group relative flex ${
               field === "actionPlan" ? "h-auto overflow-visible" : "h-full min-h-0 overflow-hidden"
-            } flex-col rounded-xl border border-gray-800/60 p-5 ${className ?? ""}`
+            } flex-col rounded-xl border border-gray-800/60 ${
+              field === "actionPlan" ? "p-4" : "p-5"
+            } ${className ?? ""}`
           : `glass-panel deck-card group relative rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_18px_45px_-18px_color-mix(in_oklab,var(--accent)_45%,transparent)] sm:p-6 ${className ?? ""}`
       }
     >
