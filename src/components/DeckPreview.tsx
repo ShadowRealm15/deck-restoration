@@ -88,8 +88,10 @@ function CardShell({
       transition={{ duration: 0.5, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
       className={
         forPdf
-          ? `deck-card group relative flex h-full min-h-0 flex-col break-inside-avoid overflow-hidden rounded-xl border border-gray-800/60 p-5 ${className ?? ""}`
-          : `glass-panel deck-card group relative break-inside-avoid rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_18px_45px_-18px_color-mix(in_oklab,var(--accent)_45%,transparent)] sm:p-6 ${className ?? ""}`
+          ? `deck-card group relative flex ${
+              field === "actionPlan" ? "h-auto overflow-visible" : "h-full min-h-0 overflow-hidden"
+            } flex-col rounded-xl border border-gray-800/60 p-5 ${className ?? ""}`
+          : `glass-panel deck-card group relative rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_18px_45px_-18px_color-mix(in_oklab,var(--accent)_45%,transparent)] sm:p-6 ${className ?? ""}`
       }
     >
       <header className="mb-4 flex items-start gap-2">
