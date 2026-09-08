@@ -454,7 +454,7 @@ export function DeckPreview({
       <ol
         className={
           forPdf
-            ? "flex h-auto flex-col gap-2.5 overflow-visible"
+            ? "flex h-auto flex-col gap-2 overflow-visible"
             : "grid gap-3"
         }
       >
