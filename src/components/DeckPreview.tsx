@@ -447,14 +447,20 @@ export function DeckPreview({
       onCopy={handleCardCopy}
       forPdf={forPdf}
     >
-      <ol className={forPdf ? "flex h-full min-h-0 flex-col justify-between gap-3" : "grid gap-3"}>
+      <ol
+        className={
+          forPdf
+            ? "flex h-auto flex-col gap-2.5 overflow-visible"
+            : "grid gap-3"
+        }
+      >
         {actionSteps.map((step, i) => (
           <li
             key={i}
             className={
               forPdf
-                ? "flex-1 break-inside-avoid overflow-hidden rounded-xl border border-gray-800/60 p-4 text-[16px] leading-relaxed text-muted-foreground"
-                : "break-inside-avoid rounded-xl border border-glass-border bg-glass p-4 text-sm leading-loose text-muted-foreground"
+                ? "h-auto overflow-visible rounded-xl border border-gray-800/60 p-4 text-[16px] leading-relaxed text-muted-foreground"
+                : "rounded-xl border border-glass-border bg-glass p-4 text-sm leading-loose text-muted-foreground"
             }
           >
             <span

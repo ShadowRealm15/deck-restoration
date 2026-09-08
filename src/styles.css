@@ -309,7 +309,6 @@ progress.tone-progress::-moz-progress-bar {
 /* Each rigid page group */
 .pdf-export [data-deck-page] {
   gap: 1.75rem !important;
-  break-inside: avoid;
 }
 
 /* Cards: generous padding to breathe around the larger type */
