@@ -70,6 +70,7 @@ const BRIEF_STORAGE_KEY = "brandstrat.brief";
 
 function Index() {
   const [unlocked, setUnlocked] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
   const [brief, setBrief] = useState<BriefInput>(EMPTY_BRIEF);
   const [apiKey, setApiKey] = useState("");
   const [deck, setDeck] = useState<StrategyDeck>(EMPTY_DECK);
