@@ -520,7 +520,7 @@ export function DeckPreview({
     const gridStyle: React.CSSProperties = {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      gap: "24px",
+      gap: "20px",
       flex: 1,
       minWidth: 0,
       minHeight: 0,
