@@ -512,8 +512,8 @@ export function DeckPreview({
       overflow: "hidden",
       display: "flex",
       flexDirection: "column",
-      gap: "32px",
-      padding: "48px",
+      gap: "24px",
+      padding: "40px",
       backgroundColor: "#0d0e11",
       color: "#f8fafc",
     };
