@@ -90,7 +90,9 @@ function CardShell({
         forPdf
           ? `deck-card group relative flex ${
               field === "actionPlan" ? "h-auto overflow-visible" : "h-full min-h-0 overflow-hidden"
-            } flex-col rounded-xl border border-gray-800/60 p-5 ${className ?? ""}`
+            } flex-col rounded-xl border border-gray-800/60 ${
+              field === "actionPlan" ? "p-4" : "p-5"
+            } ${className ?? ""}`
           : `glass-panel deck-card group relative rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_18px_45px_-18px_color-mix(in_oklab,var(--accent)_45%,transparent)] sm:p-6 ${className ?? ""}`
       }
     >
@@ -452,7 +454,7 @@ export function DeckPreview({
       <ol
         className={
           forPdf
-            ? "flex h-auto flex-col gap-2.5 overflow-visible"
+            ? "flex h-auto flex-col gap-2 overflow-visible"
             : "grid gap-3"
         }
       >
@@ -461,14 +463,14 @@ export function DeckPreview({
             key={i}
             className={
               forPdf
-                ? "h-auto overflow-visible rounded-xl border border-gray-800/60 p-4 text-[16px] leading-relaxed text-muted-foreground"
+                ? "h-auto overflow-visible rounded-xl border border-gray-800/60 px-3.5 py-2.5 text-[15px] leading-snug text-muted-foreground"
                 : "rounded-xl border border-glass-border bg-glass p-4 text-sm leading-loose text-muted-foreground"
             }
           >
             <span
               className={
                 forPdf
-                  ? "mb-2 inline-grid size-8 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-[15px] font-semibold text-primary-foreground"
+                  ? "mb-1 inline-grid size-6 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-[13px] font-semibold text-primary-foreground"
                   : "mb-2 inline-grid size-6 place-items-center rounded-full bg-[image:var(--gradient-primary)] text-xs font-semibold text-primary-foreground"
               }
             >
@@ -480,7 +482,7 @@ export function DeckPreview({
               onChange={(v) => setList("actionPlan", i, v)}
               className={
                 forPdf
-                  ? "text-[16px] leading-relaxed text-muted-foreground"
+                  ? "text-[15px] leading-snug text-muted-foreground"
                   : "text-sm leading-loose text-muted-foreground"
               }
             />
@@ -510,15 +512,15 @@ export function DeckPreview({
       overflow: "hidden",
       display: "flex",
       flexDirection: "column",
-      gap: "32px",
-      padding: "48px",
+      gap: "24px",
+      padding: "40px",
       backgroundColor: "#0d0e11",
       color: "#f8fafc",
     };
     const gridStyle: React.CSSProperties = {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",
-      gap: "24px",
+      gap: "20px",
       flex: 1,
       minWidth: 0,
       minHeight: 0,

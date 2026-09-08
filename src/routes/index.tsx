@@ -67,9 +67,11 @@ const EMPTY_BRIEF: BriefInput = {
 
 const DECK_STORAGE_KEY = "brandstrat.deck";
 const BRIEF_STORAGE_KEY = "brandstrat.brief";
+const AUTH_STORAGE_KEY = "brandstrat.unlocked";
 
 function Index() {
   const [unlocked, setUnlocked] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
   const [brief, setBrief] = useState<BriefInput>(EMPTY_BRIEF);
   const [apiKey, setApiKey] = useState("");
   const [deck, setDeck] = useState<StrategyDeck>(EMPTY_DECK);
@@ -86,6 +88,12 @@ function Index() {
   const pdfDeckRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    try {
+      if (window.localStorage.getItem(AUTH_STORAGE_KEY) === "true") setUnlocked(true);
+    } catch {
+      /* storage unavailable */
+    }
+    setAuthChecked(true);
     setApiKey(loadApiKey());
     // Every field of the Brief starts blank on a fresh mount — including the
     // vibe — and the deck resets with it, so nothing is left stale.
@@ -225,8 +233,23 @@ function Index() {
     toast.success("Deck cleared");
   };
 
+  if (!authChecked) {
+    return <div className="min-h-screen bg-background" />;
+  }
+
   if (!unlocked) {
-    return <LockScreen onUnlock={() => setUnlocked(true)} />;
+    return (
+      <LockScreen
+        onUnlock={() => {
+          try {
+            window.localStorage.setItem(AUTH_STORAGE_KEY, "true");
+          } catch {
+            /* storage unavailable */
+          }
+          setUnlocked(true);
+        }}
+      />
+    );
   }
 
   return (
