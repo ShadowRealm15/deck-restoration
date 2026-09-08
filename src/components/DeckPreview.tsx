@@ -482,7 +482,7 @@ export function DeckPreview({
               onChange={(v) => setList("actionPlan", i, v)}
               className={
                 forPdf
-                  ? "text-[16px] leading-relaxed text-muted-foreground"
+                  ? "text-[15px] leading-snug text-muted-foreground"
                   : "text-sm leading-loose text-muted-foreground"
               }
             />
