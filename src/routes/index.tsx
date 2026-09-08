@@ -87,6 +87,12 @@ function Index() {
   const pdfDeckRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    try {
+      if (window.localStorage.getItem(AUTH_STORAGE_KEY) === "true") setUnlocked(true);
+    } catch {
+      /* storage unavailable */
+    }
+    setAuthChecked(true);
     setApiKey(loadApiKey());
     // Every field of the Brief starts blank on a fresh mount — including the
     // vibe — and the deck resets with it, so nothing is left stale.
