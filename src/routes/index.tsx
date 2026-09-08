@@ -233,8 +233,23 @@ function Index() {
     toast.success("Deck cleared");
   };
 
+  if (!authChecked) {
+    return <div className="min-h-screen bg-background" />;
+  }
+
   if (!unlocked) {
-    return <LockScreen onUnlock={() => setUnlocked(true)} />;
+    return (
+      <LockScreen
+        onUnlock={() => {
+          try {
+            window.localStorage.setItem(AUTH_STORAGE_KEY, "true");
+          } catch {
+            /* storage unavailable */
+          }
+          setUnlocked(true);
+        }}
+      />
+    );
   }
 
   return (
