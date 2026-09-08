@@ -232,69 +232,11 @@
   font-weight: 650;
 }
 
-/* Native print-to-PDF: hide all app chrome, expand the deck, force dark theme. */
-@page {
-  margin: 12mm;
-  size: auto;
-}
-
-@media print {
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  html,
-  body {
-    background: #12161d !important;
-    color: #f4f6f8 !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  /* Hide sidebar, header, and every UI button/control marked no-print */
-  .no-print {
-    display: none !important;
-  }
-
-  /* Expand the Strategy Deck to full printable width and un-clip scroll containers */
-  .print-deck {
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    overflow: visible !important;
-    background: #12161d !important;
-    color: #f4f6f8 !important;
-  }
-  .print-deck * {
-    overflow: visible !important;
-    max-height: none !important;
-  }
-  main,
-  .shell-gradient {
-    display: block !important;
-    height: auto !important;
-    overflow: visible !important;
-    background: #12161d !important;
-  }
-
-  /* Bento cards must never be sliced across pages */
-  .deck-card,
-  .break-inside-avoid {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  .print-surface {
-    box-shadow: none !important;
-    border: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 0 !important;
-  }
-}
+/*
+ * Native browser print styles intentionally removed: the global @page /
+ * @media print / page-break rules distorted the exported PDF. The PDF is
+ * produced solely by the off-screen `.pdf-export` capture below.
+ */
 
 .font-serif {
   font-family: "Playfair Display", ui-serif, Georgia, serif;
