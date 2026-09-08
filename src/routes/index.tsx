@@ -62,7 +62,7 @@ const EMPTY_BRIEF: BriefInput = {
   industry: "",
   offering: "",
   audience: "",
-  vibe: "Luxury",
+  vibe: "",
 };
 
 const DECK_STORAGE_KEY = "brandstrat.deck";
@@ -87,8 +87,10 @@ function Index() {
 
   useEffect(() => {
     setApiKey(loadApiKey());
-    // The Brief always starts blank on a fresh mount, so the deck must too —
-    // otherwise a hard refresh shows a stale deck next to an empty form.
+    // Every field of the Brief starts blank on a fresh mount — including the
+    // vibe — and the deck resets with it, so nothing is left stale.
+    setBrief({ ...EMPTY_BRIEF });
+    setInvalidFields([]);
     setDeck(EMPTY_DECK);
     setPresenting(false);
     try {
@@ -208,10 +210,15 @@ function Index() {
   };
 
   const handleClear = () => {
+    // One shared reset path: the brief (all fields, vibe included) and the deck
+    // both go back to their identical initial state.
+    setBrief({ ...EMPTY_BRIEF });
+    setInvalidFields([]);
     setDeck(EMPTY_DECK);
     setPresenting(false);
     try {
       window.localStorage.removeItem(DECK_STORAGE_KEY);
+      window.localStorage.removeItem(BRIEF_STORAGE_KEY);
     } catch {
       /* ignore */
     }
