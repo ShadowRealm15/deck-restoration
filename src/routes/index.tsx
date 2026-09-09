@@ -1,17 +1,3 @@
-// Force custom favicon programmatically
-const setFavicon = (url: string) => {
-  let link = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
-  if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
-  }
-  link.type = 'image/png';
-  link.href = url;
-};
-
-// Update to your public image
-setFavicon('/favicon.png'); 
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -66,6 +52,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   component: Index,
