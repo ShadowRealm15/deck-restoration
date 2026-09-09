@@ -260,8 +260,8 @@ function Index() {
     <div className="shell-gradient flex min-h-screen flex-col bg-background md:h-screen md:overflow-hidden">
       <header className="no-print grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-glass-border px-5 py-3.5 lg:px-8">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-glow)]">
-            <Sparkles className="size-4" />
+          <div className="grid size-9 shrink-0 place-items-center rounded-xl overflow-hidden bg-black/20 border border-white/10 shadow-[var(--shadow-glow)]">
+            <img src="/favicon.png" alt="BrandStrat Logo" className="w-full h-full object-contain p-1.5" />
           </div>
           <div className="min-w-0">
             <h1 className="truncate text-lg font-semibold tracking-tight">
