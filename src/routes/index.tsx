@@ -1,3 +1,17 @@
+// Force custom favicon programmatically
+const setFavicon = (url: string) => {
+  let link = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+  }
+  link.type = 'image/png';
+  link.href = url;
+};
+
+// Update to your public image
+setFavicon('/favicon.png'); 
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
